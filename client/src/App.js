@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 
 // Establish Socket connection
-const socket = io("http://localhost:4000");
+const socket = io("http://192.168.2.122:4000");
 
 const DynamicComponent = ({ component, props }) => {
   const [library, componentType] = component.split(".");
@@ -46,7 +46,9 @@ const renderBootstrapComponent = (componentType, props) => {
                   props={child.props}
                 />
               ))
-            : typeof children === 'string' ? children : children && (
+            : typeof children === "string"
+            ? children
+            : children && (
                 <RenderChildComponent
                   component={children.component}
                   props={children.props}
@@ -65,7 +67,9 @@ const renderBootstrapComponent = (componentType, props) => {
                   props={child.props}
                 />
               ))
-            : typeof children === 'string' ? children : children && (
+            : typeof children === "string"
+            ? children
+            : children && (
                 <RenderChildComponent
                   component={children.component}
                   props={children.props}
@@ -84,7 +88,9 @@ const renderBootstrapComponent = (componentType, props) => {
                   props={child.props}
                 />
               ))
-            : typeof children === 'string' ? children : children && (
+            : typeof children === "string"
+            ? children
+            : children && (
                 <RenderChildComponent
                   component={children.component}
                   props={children.props}
@@ -111,7 +117,9 @@ const renderBootstrapComponent = (componentType, props) => {
                   props={child.props}
                 />
               ))
-            : typeof children === 'string' ? children : children && (
+            : typeof children === "string"
+            ? children
+            : children && (
                 <RenderChildComponent
                   component={children.component}
                   props={children.props}
@@ -132,7 +140,9 @@ const renderBootstrapComponent = (componentType, props) => {
                     props={child.props}
                   />
                 ))
-              : typeof children === 'string' ? children : children && (
+              : typeof children === "string"
+              ? children
+              : children && (
                   <RenderChildComponent
                     component={children.component}
                     props={children.props}
@@ -152,7 +162,9 @@ const renderBootstrapComponent = (componentType, props) => {
                   props={child.props}
                 />
               ))
-            : typeof children === 'string' ? children : children && (
+            : typeof children === "string"
+            ? children
+            : children && (
                 <RenderChildComponent
                   component={children.component}
                   props={children.props}
@@ -164,8 +176,8 @@ const renderBootstrapComponent = (componentType, props) => {
       return <Card.Title {...restProps}>{restProps.children}</Card.Title>;
     case "Card.Text":
       return <Card.Text {...restProps}>{restProps.children}</Card.Text>;
-    case "Button":
-      return <Button {...restProps}>{restProps.children}</Button>;
+    case "Button": 
+      return <Button {...restProps}>{children}</Button>;
     case "Alert":
       return <Alert {...restProps}>{restProps.children}</Alert>;
     case "ListGroup":
@@ -220,7 +232,7 @@ const isBasicHTMLElement = (componentType) => {
     "a",
     "img",
     "p",
-    "button",
+    // "button",
     "input",
     "textarea",
     "form",
